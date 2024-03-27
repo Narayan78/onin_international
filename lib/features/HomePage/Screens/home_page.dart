@@ -14,21 +14,19 @@ class HomePage extends StatelessWidget {
       child: Scaffold(
         body: Column(
           children: [
-
             // Custom AppBar
             customAppBar(),
 
             // Image Slider
             const ImageSlider(
               imageUrls: [
-                'assets/spinner.png',
+                'assets/predator.png',
                 'assets/macbook.png',
                 'assets/predator.png',
               ],
               slideDuration: Duration(seconds: 5),
               fit: BoxFit.cover,
             ),
-
 
             // Featured Product
             DoubleLineText(
@@ -38,9 +36,30 @@ class HomePage extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
             ),
+            const SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  ProductContainer(),
+                  ProductContainer(),
+                  ProductContainer(),
+                  ProductContainer(),
+                ],
+              ),
+            ),
 
-             const ProductContainer(),
+            // Special Offers
+            const SizedBox(height: 20),
+            DoubleLineText(
+              text: "SPECIAL OFFERS",
+              textStyle: GoogleFonts.khand(
+                fontSize: 28,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
 
+
+            
           ],
         ),
       ),
